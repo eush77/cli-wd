@@ -1,0 +1,37 @@
+{
+  "name": "cli-cwd",
+  "version": "0.0.0",
+  "description": "Run command with modified CWD (current working directory)",
+  "author": "Eugene Sharygin <eush77@gmail.com>",
+  "license": "MIT",
+  "preferGlobal": true,
+  "bin": {
+    "cwd": "bin/cli.js"
+  },
+  "homepage": "https://github.com/eush77/cli-cwd",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eush77/cli-cwd"
+  },
+  "bugs": {
+    "url": "https://github.com/eush77/cli-cwd/issues"
+  },
+  "keywords": [
+    "change",
+    "current",
+    "working",
+    "directory",
+    "chdir",
+    "cli",
+    "console",
+    "program",
+    "command",
+    "command line",
+    "unix",
+    "shell",
+    "exec",
+    "system"
+  ],
+  "dependencies": {},
+  "devDependencies": {}
+}
