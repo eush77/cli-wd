@@ -32,5 +32,18 @@ var wireStdio = function (parent, child) {
 
 
 wireStdio(process, kwargs(cwd, parseArgs(process.argv.slice(2)), function (error) {
-  process.exit(error && error.code || 0);
+  if (error) {
+    if (typeof error.code != 'number') {
+      console.error(String(error));
+      var code = 1;
+    }
+    else {
+      var code = error.code;
+    }
+  }
+  else {
+    var code = 0;
+  }
+
+  process.exit(code);
 }));
