@@ -32,6 +32,8 @@
     "exec",
     "system"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "kwargs": "0.0.2"
+  },
   "devDependencies": {}
 }
