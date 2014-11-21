@@ -1,6 +1,6 @@
 {
   "name": "cli-cwd",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Run command with modified CWD (current working directory)",
   "author": "Eugene Sharygin <eush77@gmail.com>",
   "license": "MIT",
