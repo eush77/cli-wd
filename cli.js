@@ -1,14 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-var kwargs = require('kwargs');
-
-var exec = require('child_process').exec;
-
-
-var cwd = function (wd, command, cb) {
-  return exec(command, { cwd: wd }, cb);
-};
+var kexec = require('kexec');
 
 
 var usage = function () {
@@ -17,36 +10,11 @@ var usage = function () {
 };
 
 
-var parseArgs = function (args) {
+(function () {
+  var args = process.argv.slice(2);
   if (args.length < 3 || args[1] != '--') {
-    usage();
+    return usage();
   }
-  return {
-    wd: args[0],
-    command: args.slice(2).join(' ')
-  };
-};
-
-
-var wireStdio = function (parent, child) {
-  child.stdout.pipe(parent.stdout);
-  child.stderr.pipe(parent.stderr);
-  parent.stdin.pipe(child.stdin);
-};
-
-
-wireStdio(process, kwargs(cwd, parseArgs(process.argv.slice(2)), function (error) {
-  if (error) {
-    if (typeof error.code != 'number') {
-      console.error(String(error));
-      var code = 1;
-    }
-    else {
-      var code = error.code;
-    }
-  }
-  else {
-    var code = 0;
-  }
-  process.exit(code);
-}));
+  process.chdir(args[0]);
+  kexec(args[2], args.slice(3));
+}());

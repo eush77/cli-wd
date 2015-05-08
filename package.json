@@ -33,7 +33,7 @@
     "system"
   ],
   "dependencies": {
-    "kwargs": "0.0.2"
+    "kexec": "^1.2.0"
   },
   "devDependencies": {}
 }
