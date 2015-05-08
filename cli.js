@@ -5,16 +5,19 @@ var kexec = require('kexec');
 
 
 var usage = function () {
-  console.log('Usage:  cwd <directory> -- <command> [arg]...');
+  console.log('Usage:  cwd <directory> [<command>] [arg]...');
   process.exit(1);
 };
 
 
-(function () {
-  var args = process.argv.slice(2);
-  if (args.length < 3 || args[1] != '--') {
+(function (argv) {
+  if (argv.length < 1 || argv == '--help') {
     return usage();
   }
-  process.chdir(args[0]);
-  kexec(args[2], args.slice(3));
-}());
+
+  var wd = argv.shift();
+  var cmd = argv.shift() || process.env.SHELL;
+
+  process.chdir(wd);
+  kexec(cmd, argv);
+}(process.argv.slice(2)));

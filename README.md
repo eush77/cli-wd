@@ -1,48 +1,42 @@
-# cli-cwd [![Dependency Status][david-badge]][david]
-
 [![npm](https://nodei.co/npm/cli-cwd.png)](https://nodei.co/npm/cli-cwd/)
+
+# cli-cwd [![Dependency Status][david-badge]][david]
 
 [david]: https://david-dm.org/eush77/cli-cwd
 [david-badge]: https://david-dm.org/eush77/cli-cwd.png
 
-Runs specified command with modified CWD, redirecting all stdio in the correct way (i.e. you can pipe or redirect stdin/stdout/stderr).
+Run program in a modified working directory.
 
-The package installs `cwd` command with the following signature:
+## Example
 
 ```
-cwd <directory> -- <command> [arg]...
-```
-
-## Examples
-
-```bash
-$ cwd /usr/bin -- pwd
+$ cwd /usr/bin pwd
 /usr/bin
-
-$ cwd /usr/bin -- ls |ack '^zip'
-zip
-zipcloak
-zipgrep
-zipinfo
-zipnote
-zipsplit
 ```
 
-More realistic example — universally operate on directories no-matter-what-flag-tool-authors-have-chosen-to-use.
+Put archive file in a custom directory across archivers:
 
-```bash
-$ cwd ./dir -- tar cvaf ../dir.tbz2 .
-$ cwd ./dir -- zip -r ../dir .
-$ cwd ./dir -- 7z a ../dir . -tzip
+```
+$ cwd ./dir tar cvaf ../dir.tbz2 .
+$ cwd ./dir zip -r ../dir .
+$ cwd ./dir 7z a ../dir . -tzip
 ```
 
-In all of these cases files are saved with file names relative to `./dir`.
+Start a subshell:
+
+```
+$ cwd /
+$ echo $SHLVL $PWD
+2 /
+```
 
 ## CLI
 
 ```
-Usage:  cwd <directory> -- <command> [arg]...
+Usage:  cwd <directory> [<command>] [arg]...
 ```
+
+`<command>` defaults to `$SHELL` if omitted.
 
 ## Install
 
