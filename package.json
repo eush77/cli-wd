@@ -6,7 +6,7 @@
   "license": "MIT",
   "preferGlobal": true,
   "bin": {
-    "cwd": "bin/cli.js"
+    "cwd": "cli.js"
   },
   "homepage": "https://github.com/eush77/cli-cwd",
   "repository": {

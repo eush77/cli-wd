@@ -1,9 +1,14 @@
 #!/usr/bin/env node
 'use strict';
 
-var cwd = require('..');
-
 var kwargs = require('kwargs');
+
+var exec = require('child_process').exec;
+
+
+var cwd = function (wd, command, cb) {
+  return exec(command, { cwd: wd }, cb);
+};
 
 
 var usage = function () {
@@ -16,7 +21,6 @@ var parseArgs = function (args) {
   if (args.length < 3 || args[1] != '--') {
     usage();
   }
-
   return {
     wd: args[0],
     command: args.slice(2).join(' ')
@@ -44,6 +48,5 @@ wireStdio(process, kwargs(cwd, parseArgs(process.argv.slice(2)), function (error
   else {
     var code = 0;
   }
-
   process.exit(code);
 }));

@@ -44,10 +44,6 @@ In all of these cases files are saved with file names relative to `./dir`.
 Usage:  cwd <directory> -- <command> [arg]...
 ```
 
-## API
-
-Well, there *is* an API, but you should definitely use Node's own [`child_process.exec`](http://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback) instead. Take a look at `index.js` if you are not convinced.
-
 ## Install
 
 ```shell
