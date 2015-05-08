@@ -4,15 +4,10 @@
 var kexec = require('kexec');
 
 
-var usage = function () {
-  console.log('Usage:  cwd <directory> [<command>] [arg]...');
-  process.exit(1);
-};
-
-
 (function (argv) {
   if (argv.length < 1 || argv == '--help') {
-    return usage();
+    console.log('Usage:  cwd <directory> [<command>] [arg]...');
+    return;
   }
 
   var wd = argv.shift();
