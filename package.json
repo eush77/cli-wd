@@ -17,7 +17,8 @@
     "url": "https://github.com/eush77/cli-wd/issues"
   },
   "keywords": [
-    "change",
+    "wd",
+    "cwd",
     "current",
     "working",
     "directory",
@@ -26,7 +27,6 @@
     "console",
     "program",
     "command",
-    "command line",
     "unix",
     "shell",
     "exec",
