@@ -1,31 +1,31 @@
-[![npm](https://nodei.co/npm/cli-cwd.png)](https://nodei.co/npm/cli-cwd/)
+[![npm](https://nodei.co/npm/cli-wd.png)](https://nodei.co/npm/cli-wd/)
 
-# cli-cwd [![Dependency Status][david-badge]][david]
+# cli-wd [![Dependency Status][david-badge]][david]
 
-[david]: https://david-dm.org/eush77/cli-cwd
-[david-badge]: https://david-dm.org/eush77/cli-cwd.png
+[david]: https://david-dm.org/eush77/cli-wd
+[david-badge]: https://david-dm.org/eush77/cli-wd.png
 
 Run program in a modified working directory.
 
 ## Example
 
 ```
-$ cwd /usr/bin pwd
+$ wd /usr/bin pwd
 /usr/bin
 ```
 
 Put archive file in a custom directory across archivers:
 
 ```
-$ cwd ./dir tar cvaf ../dir.tbz2 .
-$ cwd ./dir zip -r ../dir .
-$ cwd ./dir 7z a ../dir . -tzip
+$ wd ./dir tar cvaf ../dir.tbz2 .
+$ wd ./dir zip -r ../dir .
+$ wd ./dir 7z a ../dir . -tzip
 ```
 
 Start a subshell:
 
 ```
-$ cwd /
+$ wd /
 $ echo $SHLVL $PWD
 2 /
 ```
@@ -33,7 +33,7 @@ $ echo $SHLVL $PWD
 ## CLI
 
 ```
-Usage:  cwd <directory> [<command>] [arg]...
+Usage:  wd <directory> [<command>] [arg]...
 ```
 
 `<command>` defaults to `$SHELL` if omitted.
@@ -41,7 +41,7 @@ Usage:  cwd <directory> [<command>] [arg]...
 ## Install
 
 ```shell
-npm install -g cli-cwd
+npm install -g cli-wd
 ```
 
 ## License

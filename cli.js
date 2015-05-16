@@ -6,7 +6,7 @@ var kexec = require('kexec');
 
 (function (argv) {
   if (argv.length < 1 || argv == '--help') {
-    console.log('Usage:  cwd <directory> [<command>] [arg]...');
+    console.log('Usage:  wd <directory> [<command>] [arg]...');
     return;
   }
 
