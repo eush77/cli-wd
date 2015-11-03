@@ -32,7 +32,7 @@
     "exec",
     "system"
   ],
-  "dependencies": {
+  "optionalDependencies": {
     "kexec": "^1.2.0"
   },
   "devDependencies": {}

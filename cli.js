@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 'use strict';
 
-var kexec = require('kexec');
+try {
+  var kexec = require('kexec');
+} catch (e) {
+  var spawnSync = require('child_process').spawnSync;
+}
 
 
 (function (argv) {
@@ -13,6 +17,14 @@ var kexec = require('kexec');
   var wd = argv.shift();
   var cmd = argv.shift() || process.env.SHELL;
 
-  process.chdir(wd);
-  kexec(cmd, argv);
+  if (kexec) {
+    process.chdir(wd);
+    kexec(cmd, argv);
+  }
+  else {
+    spawnSync(cmd, argv, {
+      cwd: wd,
+      stdio: 'inherit'
+    });
+  }
 }(process.argv.slice(2)));
