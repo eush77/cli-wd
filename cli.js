@@ -1,11 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-try {
-  var kexec = require('kexec');
-} catch (e) {
-  var spawnSync = require('child_process').spawnSync;
-}
+var spawnFrom = require('./');
 
 var shellQuote = require('shell-quote').quote;
 
@@ -56,21 +52,6 @@ var shellQuote = require('shell-quote').quote;
     }
   }
 }(process.argv.slice(2)));
-
-
-function spawnFrom (wd, cmd, argv) {
-  if (kexec) {
-    process.chdir(wd);
-    kexec(cmd, argv);
-  }
-  else {
-    var err = spawnSync(cmd, argv, {
-      cwd: wd,
-      stdio: 'inherit'
-    }).error;
-    if (err) throw err;
-  }
-}
 
 
 function shellIsUndefined () {

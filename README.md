@@ -32,11 +32,28 @@ $ echo $SHLVL $PWD
 
 ## CLI
 
-```
-Usage:  wd <directory> [<command>] [arg]...
-```
+#### `wd <directory> [<command>] [arg]...`
 
 Run `<command>` (which defaults to `$SHELL`) with supplied arguments in a given working directory. Fall back to shell (just in case `<command>` is a shell function or alias).
+
+## API
+
+This is only a thin wrapper over [kexec](http://https://github.com/jprichardson/node-kexec) falling back to [child_process.spawnSync](https://nodejs.org/api/child_process.html#child_process_child_process_spawnsync_command_args_options), but anyway:
+
+#### `spawnFrom(wd, cmd, argv)`
+
+Synchronously spawn process defined by `cmd` and `argv` in the working directory `wd`.
+
+<dl>
+<dt>wd</dt>
+<dd>Working directory to spawn process in.</dd>
+
+<dt>cmd</dt>
+<dd>Command to run.</dd>
+
+<dt>argv</dt>
+<dd>Array of arguments.</dd>
+</dl>
 
 ## Install
 
