@@ -35,5 +35,8 @@
   "optionalDependencies": {
     "kexec": "^1.2.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "dependencies": {
+    "shell-quote": "^1.4.3"
+  }
 }

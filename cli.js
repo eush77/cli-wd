@@ -7,6 +7,8 @@ try {
   var spawnSync = require('child_process').spawnSync;
 }
 
+var shellQuote = require('shell-quote').quote;
+
 
 (function (argv) {
   if (argv.length < 1 || argv == '--help') {
@@ -22,7 +24,7 @@ try {
   }
   catch (err) {
     // Try to execute in shell.
-    argv = ['-c', [cmd].concat(argv).join(' ')];
+    argv = ['-c', shellQuote([cmd].concat(argv))];
     cmd = process.env.SHELL;
     try {
       spawnFrom(wd, cmd, argv);
