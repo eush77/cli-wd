@@ -36,7 +36,7 @@ $ echo $SHLVL $PWD
 Usage:  wd <directory> [<command>] [arg]...
 ```
 
-`<command>` defaults to `$SHELL` if omitted.
+Run `<command>` (which defaults to `$SHELL`) with supplied arguments in a given working directory. Fall back to shell (just in case `<command>` is a shell function or alias).
 
 ## Install
 

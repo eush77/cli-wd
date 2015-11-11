@@ -12,7 +12,16 @@ var shellQuote = require('shell-quote').quote;
 
 (function (argv) {
   if (argv.length < 1 || argv == '--help') {
-    console.log('Usage:  wd <directory> [<command>] [arg]...');
+    console.log([
+      'Usage:  wd <directory> [<command>] [arg]...',
+      '',
+      'Run `<command>` with supplied arguments in a given working directory.',
+      'Fall back to shell (just in case `<command>` is a shell function or',
+      'alias).',
+      '',
+      'Arguments:',
+      '  <command>  Command to run (default: $SHELL).'
+    ].join('\n'));
     return;
   }
 
