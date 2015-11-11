@@ -37,6 +37,7 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "help-version": "^1.0.0",
     "shell-quote": "^1.4.3"
   }
 }

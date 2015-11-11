@@ -3,24 +3,25 @@
 
 var spawnFrom = require('./');
 
-var shellQuote = require('shell-quote').quote;
+var shellQuote = require('shell-quote').quote,
+    help = require('help-version')(usage()).help;
+
+
+function usage () {
+  return [
+    'Usage:  wd <directory> [<command>] [arg]...',
+    '',
+    'Run `<command>` with supplied arguments in a given working directory.',
+    'Fall back to shell (just in case `<command>` is a shell function or',
+    'alias).',
+    '',
+    'Arguments:',
+    '  <command>  Command to run (default: $SHELL).'
+  ].join('\n');
+}
 
 
 (function (argv) {
-  if (argv.length < 1 || argv == '--help') {
-    console.log([
-      'Usage:  wd <directory> [<command>] [arg]...',
-      '',
-      'Run `<command>` with supplied arguments in a given working directory.',
-      'Fall back to shell (just in case `<command>` is a shell function or',
-      'alias).',
-      '',
-      'Arguments:',
-      '  <command>  Command to run (default: $SHELL).'
-    ].join('\n'));
-    return;
-  }
-
   var wd = argv.shift();
   var cmd = argv.shift();
   if (!cmd) {
