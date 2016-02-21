@@ -32,9 +32,11 @@ $ echo $SHLVL $PWD
 
 ## CLI
 
-#### `wd <directory> [<command>] [arg]...`
+#### `wd [-s | --shell] <directory> [<command>] [arg]...`
 
 Run `<command>` (which defaults to `$SHELL`) with supplied arguments in a given working directory. Fall back to shell (just in case `<command>` is a shell function or alias).
+
+`--shell` forces command to be executed in shell.
 
 ## API
 

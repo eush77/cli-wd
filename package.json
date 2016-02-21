@@ -38,6 +38,7 @@
   "devDependencies": {},
   "dependencies": {
     "help-version": "^1.0.0",
+    "or-die": "0.0.1",
     "shell-quote": "^1.4.3"
   }
 }
