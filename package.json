@@ -33,7 +33,7 @@
     "system"
   ],
   "optionalDependencies": {
-    "kexec": "^1.2.0"
+    "kexec": "^3.0.0"
   },
   "devDependencies": {},
   "dependencies": {
